@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa Eletronico</title>
+
+    <script>
+
+        var saldo = 100.5 //Dinheiro 
+
+        nome();
+
+        function nome() {
+            var nome = prompt('Por favor Insira o seu nome: ')
+            {
+                while (nome === '') {
+                    nome = prompt('Por favor Insira o seu nome: ')
+                }
+            }
+            alert('Olá ' + nome + ' é um prazer ter você por aqui!')
+        }
+
+        function saque() {
+            var valorSaque = parseFloat(prompt('Insira o valor que deseja sacar:'));
+
+            if (valorSaque <= 0 || isNaN(valorSaque) || valorSaque === '' || valorSaque > saldo) { alert('Valor inválido'); saque() }
+
+            else {
+                saldo -= valorSaque;
+                alert('Você sacou: ' + valorSaque + '\nSeu saldo atual é: ' + saldo);
+                Inicio();
+            }
+        }
+
+        function deposito() {
+            var valorDeposito = parseFloat(prompt('Insira o valor que deseja Depositar:'));
+
+            if (valorDeposito <= 0 || isNaN(valorDeposito) || valorDeposito === '') { alert('Valor inválido'); deposito() }
+
+            else {
+                saldo += valorDeposito;
+                alert('Você depositou: ' + valorDeposito + '\nSeu saldo atual é: ' + saldo);
+                Inicio();
+            }
+        }
+
+
+
+
+        function Inicio() {
+
+            var escolha = parseInt(prompt('Selecione uma opção 1.) Saldo 2.) Depósito 3.) Saque 4.) Sair'));
+            switch (escolha) {
+                case 1:
+                    var verSaldo = alert('seu saldo é de ' + saldo)
+                    Inicio()
+
+                    break;
+
+                case 2:
+                    deposito()
+
+
+                    break;
+
+                case 3:
+                    saque()
+
+
+                    break;
+
+                case 4:
+                    var confirmarSaida = confirm('Você tem certeza que deseja sair?');
+                    if (confirmarSaida == true) { window.close() }
+
+                    else Inicio()
+
+                    break;
+
+
+                default:
+                    var erroDeEscolha = alert('Escolha uma opção valida!')
+                    Inicio()
+
+            }
+        }
+
+        Inicio();
+
+    </script>
+
+
+</head>
+
+
+
+
+
+
+<body>
+
+</body>
+
+</html>
